@@ -1,7 +1,13 @@
-.main {
-  padding: 0;
-}
-
+@use "./components/header.scss" as *;
 body {
-  color: black;
+  display: block;
+}
+span {
+  display: block;
+  width: 150px;
+  height: 150px;
+  img {
+    width: 150px;
+    height: 150px;
+  }
 }

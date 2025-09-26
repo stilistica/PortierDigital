@@ -1,59 +1,35 @@
-const { src, dest, watch, parallel, series } = require("gulp");
+import gulp from "gulp";
+import { path } from "./gulp/config/path.js";
+import { plugins } from "./gulp/config/plugins.js";
 
-const scss = require("gulp-sass")(require("sass"));
-const concat = require("gulp-concat");
-const uglify = require("gulp-uglify-es").default;
-const browserSync = require("browser-sync").create();
-const autoprefixer = require("gulp-autoprefixer");
-const clean = require("gulp-clean");
+global.app = {
+  path: path,
+  gulp: gulp,
+	plugins: plugins,
+};
 
-function scripts() {
-  return src(["src/js/*.js", "!src/js/main.js"])
-    .pipe(concat("main.min.js"))
-    .pipe(uglify())
-    .pipe(dest("src/js"))
-    .pipe(browserSync.stream());
+import { copy } from "./gulp/tasks/copy.js";
+import { reset } from "./gulp/tasks/reset.js";
+import { html } from "./gulp/tasks/html.js";
+import { server } from "./gulp/tasks/server.js";
+import { scss } from "./gulp/tasks/scss.js";
+import { js } from "./gulp/tasks/js.js";
+import { images } from "./gulp/tasks/images.js";
+import { ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
+
+
+function watcher() {
+  gulp.watch(path.watch.files, copy);
+  gulp.watch(path.watch.html, html);
+  gulp.watch(path.watch.scss, scss);
+  gulp.watch(path.watch.js, js);
+  gulp.watch(path.watch.images, images);
 }
 
-function styles() {
-  return src("src/scss/style.scss")
-    .pipe(autoprefixer({ overrideBrowserslist: ["last 10 version"] }))
-    .pipe(concat("style.min.css"))
-    .pipe(scss({ style: "compressed" }))
-    .pipe(dest("src/css"))
-    .pipe(browserSync.stream());
-}
+const fonts = qulp.series(ttfToWoff, fontsStyle);
 
-function watching() {
-  watch(["src/scss/style.scss"], styles);
-  watch(["src/js/main.js"], scripts);
-  watch(["src/**/*.html"]).on("change", browserSync.reload);
-}
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
 
-function browsersync() {
-  browserSync.init({
-    server: {
-      baseDir: "src/pages",
-      // index: "pages/HomePage/index.html",
-    },
-  });
-}
+const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
 
-function cleanDist() {
-  return src("dist").pipe(clean());
-}
-
-function building() {
-  return src(["src/css/style.min.css", "src/js/main.min.js", "src/**/*.html"], {
-    base: "src",
-  }).pipe(dest("dist"));
-}
-
-
-exports.styles = styles;
-exports.scripts = scripts;
-exports.watching = watching;
-exports.browsersync = browsersync;
-
-exports.build = series(cleanDist, building)
-exports.default = parallel(styles, scripts, browsersync, watching);
+gulp.task("default", dev);
