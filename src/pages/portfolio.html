@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('components/head.html', { 
-		"title":"Portfolio" 
-	})
+  @@include('components/head.html', { "title":"Portfolio" })
   <body>
     @@include('components/header.html', {})
-    <main></main>
+    <main>
+      @@include('components/portfolio/hero.html', {})
+      @@include('components/works.html', {})
+      @@include('components/cta.html', {})
+    </main>
     @@include('components/footer.html', {})
 
     <script defer src="js/main.min.js"></script>

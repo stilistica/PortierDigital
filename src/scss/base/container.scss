@@ -1,0 +1,27 @@
+@use "./variables.scss" as s;
+
+.container {
+  padding: 0 32px;
+  @media (min-width: d.$media_768) {
+    & {
+      padding: 0 90px;
+    }
+  }
+}
+
+.section {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  @media (min-width: d.$media_768) {
+    & {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+  }
+  @media (min-width: d.$media_1440) {
+    & {
+      padding-top: 120px;
+      padding-bottom: 120px;
+    }
+  }
+}

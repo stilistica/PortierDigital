@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-  @@include('components/head.html', { "title":"HomePage" })
+  @@include('components/head.html', { "title":"Home" })
   <body>
     @@include('components/header.html', {})
-    <main>
-      <span> Hello main name </span>
+    <main >
+      @@include('components/homepage/hero.html', {})
+      @@include('components/works.html', {})
+      @@include('components/homepage/infoOne.html', {})
+      @@include('components/homepage/testimonials.html', {})
+      @@include('components/homepage/facts.html', {})
+      @@include('components/homepage/infoTwo.html', {})
+      @@include('components/cta.html', {})
+
       <!-- <img width="150" src="@img/image.png" alt="photo" /> -->
 
       <!-- <svg>

@@ -1,24 +1,20 @@
 @use "./fonts.scss";
 @use "./base/reset.scss";
+
 @use "./base/variables.scss";
+@use "./base/mixins.scss";
+@use "./base/template.scss";
+
+@use "./base/base.scss";
+@use "./base/container.scss";
+
 @use "./components/header.scss" as *;
 
-body {
-  background-color: black;
-  color: white;
-  display: block;
-  font-family: "DMSans";
-  font-weight: 700;
   // svg use {
   //   --bg-color: #223;
   //   --icon-color: #fff;
   // }
-}
 // svg:hover use {
 //   --bg-color: green; /* фон */
 //   --icon-color: #223; /* іконка */
 // }
-span {
-  font-family: Sora;
-  font-weight: 700;
-}

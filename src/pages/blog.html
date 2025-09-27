@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('components/head.html', { 
+		"title":"Blog" 
+	})
+  <body>
+    @@include('components/header.html', {})
+    <main>
+			@@include('components/blog/hero.html', {})
+      @@include('components/blog/blogSection.html', {})
+			@@include('components/cta.html', {})
+		</main>
+    @@include('components/footer.html', {})
+
+    <script defer src="js/main.min.js"></script>
+  </body>
+</html>

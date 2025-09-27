@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  @@include('components/head.html', { "title":"About Me" })
+  <body>
+    @@include('components/header.html', {})
+    <main>
+      @@include('components/about/hero.html', {})
+      @@include('components/about/values.html', {})
+      @@include('components/about/facts.html', {})
+      @@include('components/about/companies.html', {})
+			@@include('components/cta.html', {})
+    </main>
+    @@include('components/footer.html', {})
+
+    <script defer src="js/main.min.js"></script>
+  </body>
+</html>
