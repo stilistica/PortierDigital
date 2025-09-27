@@ -15,7 +15,7 @@ import { server } from "./gulp/tasks/server.js";
 import { scss } from "./gulp/tasks/scss.js";
 import { js } from "./gulp/tasks/js.js";
 import { images } from "./gulp/tasks/images.js";
-import { ttfToWoff, fontsStyle } from "./gulp/tasks/fonts.js";
+import { copyFonts, fontsStyle } from "./gulp/tasks/fonts.js";
 
 
 function watcher() {
@@ -26,7 +26,7 @@ function watcher() {
   gulp.watch(path.watch.images, images);
 }
 
-const fonts = qulp.series(ttfToWoff, fontsStyle);
+const fonts = gulp.series(copyFonts, fontsStyle);
 
 const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, scss, js, images));
 

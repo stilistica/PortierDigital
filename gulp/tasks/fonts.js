@@ -1,18 +1,10 @@
 import fs from "fs";
-import fonter from "gulp-fonter";
-import ttf2woff2 from "gulp-ttf2woff2";
 
-export const ttfToWoff = () => {
+export const copyFonts = () => {
   return (
     app.gulp
-      .src(`${app.path.srcFolder}/fonts/*.ttf`, {})
-      .pipe(fonter({
-      formats: ['woff']
-      }))
-      .pipe(app.gulp.dest(`${app.path.srcFolder}`))
-      .pipe(app.gulp.src(`${app.path.srcFolder}/fonts/*.ttf`))
-      .pipe(ttf2woff2())
-      .pipe(app.gulp.dest(`${app.path.srcFolder}`))
+      .src(`${app.path.srcFolder}/fonts/*.woff2`, { encoding: false })
+      .pipe(app.gulp.dest(app.path.build.fonts))
   );
 };
 
@@ -55,7 +47,7 @@ export const fontsStyle = () => {
             }
             fs.appendFile(
               fontsFile,
-              `@font-face {\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format("woff2"), url("../fonts/${fontFileName});\n\tfont-weight: ${fontWeight};\n\tfont-style: normal;\n}\r\n`,
+              `@font-face {\n\tfont-family: ${fontName};\n\tfont-display: swap;\n\tsrc: url("../fonts/${fontFileName}.woff2") format("woff2");\n\tfont-weight: ${fontWeight};\n\tfont-style: normal;\n}\r\n`,
               cb
             );
             newFileOnly = fontFileName;
@@ -69,5 +61,5 @@ export const fontsStyle = () => {
     }
   });
   return app.gulp.src(`${app.path.srcFolder}`);
-  function cb() { }
+  function cb() {}
 };
