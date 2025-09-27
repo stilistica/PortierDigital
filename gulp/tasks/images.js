@@ -14,9 +14,10 @@ export const images = () => {
     .pipe(app.plugins.newer(app.path.build.images))
     .pipe(
       imagemin([
-				mozjpeg({ quality: 75 }), 
-				optipng({ optimizationLevel: 5 })]),
-				svgo({ plugins: [{ name: "removeViewBox", active: false }] }),
+        mozjpeg({ quality: 75 }),
+        optipng({ optimizationLevel: 5 }),
+        svgo({ plugins: [{ name: "removeViewBox", active: false }] }),
+      ])
     )
     .pipe(app.gulp.dest(app.path.build.images))
     .pipe(app.gulp.src(app.path.src.svg))
