@@ -1,0 +1,65 @@
+@use "../base/globals.scss" as s;
+
+.cta {
+  @include s.d-flex($direction: column);
+  gap: 60px;
+  &__info {
+    @include s.d-flex($direction: column);
+    gap: 24px;
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      color: s.$color__gray;
+    }
+    button {
+      width: 146px;
+      @include s.btn-def;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  // ------------------- 768 -----------------
+  @media (min-width: s.$media_768) {
+    @include s.d-flex($direction: row, $justify: space-between, $align: center);
+    gap: 65px;
+    &__info {
+      min-width: 271px;
+    }
+
+    &__title {
+      font-size: 48px;
+      line-height: 1.16667;
+      letter-spacing: -0.02em;
+    }
+  }
+
+  // ------------------- 1440 -----------------
+  @media (min-width: s.$media_1440) {
+    @include s.d-flex($direction: row, $justify: space-between, $align: center);
+
+    gap: 222px;
+    &__info {
+      min-width: 530px;
+    }
+
+    &__title {
+      font-size: 48px;
+      line-height: 1.16667;
+      letter-spacing: -0.02em;
+    }
+  }
+
+
+	  // ------------------- 1920 -----------------
+  @media (min-width: s.$media_1920) {
+		gap: 400px;
+	}
+}
