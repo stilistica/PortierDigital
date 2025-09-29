@@ -1,20 +1,20 @@
 const testimonialsArr = [
   {
-    svg: "/img/home/avatar-1.svg",
+    svg: "img/home/avatar-1.svg",
     comment:
       "“In fact, whenever you must learn a new skill or alter your career path later in life, you reconnect with that youthful, adventurous part of yourself.”",
     name: "Domingo Menenses",
     job: "Cobrand - CEO",
   },
   {
-    svg: "/img/home/avatar-2.svg",
+    svg: "img/home/avatar-2.svg",
     comment:
       "“In fact, whenever you must learn a new skill or alter your career path later in life, you reconnect with that youthful, adventurous part of yourself.”",
     name: "Karla Benivez",
     job: "Tinnie - CO-Founder",
   },
   {
-    svg: "/img/home/avatar-3.svg",
+    svg: "img/home/avatar-3.svg",
     comment:
       "“In fact, whenever you must learn a new skill or alter your career path later in life, you reconnect with that youthful, adventurous part of yourself.”",
     name: "Mark Clark",
