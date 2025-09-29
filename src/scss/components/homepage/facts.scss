@@ -1,0 +1,87 @@
+@use "../../base/globals.scss" as s;
+
+.home-facts {
+  @include s.d-flex($direction: column, $justify: center);
+  gap: 48px;
+
+  font-family: s.$font__sora;
+
+  &__title {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  &__list {
+    @include s.d-flex($direction: column);
+    gap: 35px;
+
+    &-item {
+      @include s.d-flex($direction: column);
+      gap: 16px;
+
+      h3 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.71429;
+        color: s.$color__gray;
+      }
+    }
+  }
+
+  // ------------------- 768 -----------------
+  @media (min-width: s.$media_768) {
+    @include s.d-flex($direction: row, $justify: space-between, $align: center);
+    gap: 126px;
+
+    &__title {
+      max-width: 640px;
+      font-size: 48px;
+      line-height: 1.16667;
+      letter-spacing: -0.02em;
+    }
+
+    &__list {
+      margin-top: 4px;
+      &-item {
+        min-width: 194px;
+        h3 {
+          font-size: 40px;
+          line-height: 1.2;
+        }
+      }
+    }
+  }
+
+  // ------------------- 1440 -----------------
+  @media (min-width: s.$media_1440) {
+    gap: 164px;
+    margin-top: 5px;
+
+    &__title {
+      max-width: none;
+    }
+
+    &__list {
+      padding-right: 30px;
+      @include s.d-flex(
+        $direction: row,
+        $justify: space-between,
+        $align: center
+      );
+      gap: 32px;
+
+      margin-top: 0px;
+      &-item {
+        min-width: 194px;
+      }
+    }
+  }
+}
