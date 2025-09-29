@@ -1,0 +1,161 @@
+@use "../../base/globals.scss" as s;
+
+.testimonials {
+  @include s.d-flex($direction: column, $align: center);
+  gap: 60px;
+
+  font-family: s.$font__sora;
+
+  &__info {
+    @include s.d-flex($direction: column, $align: center);
+    gap: 48px;
+
+    div {
+      @include s.d-flex($direction: column, $align: center);
+      gap: 16px;
+
+      h2 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      color: s.$color__gray;
+    }
+  }
+
+  &__cards {
+    @include s.d-flex($direction: column, $align: center);
+    gap: 15px;
+  }
+  &__card {
+    @include s.d-flex($justify: space-between, $wrap: nowrap);
+    gap: 24px;
+    padding: 20px;
+
+    background: s.$color__main;
+    border-radius: 8px;
+
+    transition: background 0.5s ease;
+
+    &-svg {
+      svg {
+        width: 44px;
+        height: 44px;
+      }
+    }
+    &-text {
+      @include s.d-flex(column);
+      gap: 24px;
+
+      &-com {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.71429;
+        color: s.$color__gray;
+      }
+      &-info {
+        @include s.d-flex(column);
+        gap: 4px;
+
+        h3 {
+          font-weight: 600;
+          font-size: 23.5px;
+          line-height: 1.33333;
+        }
+        p {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 1.66667;
+        }
+      }
+    }
+    &:hover {
+      background: s.$color__hover;
+    }
+  }
+
+  // -------------- 768 -------------
+  @media (min-width: s.$media_768) {
+    @include s.d-flex($direction: row, $align: stretch);
+    gap: 73px;
+
+    &__info {
+      @include s.d-flex($direction: column, $justify: space-between);
+      gap: 48px;
+      min-width: 250px;
+      max-width: 333px;
+
+      div {
+        h2 {
+          font-size: 48px;
+          line-height: 1.16667;
+          letter-spacing: -0.02em;
+        }
+      }
+    }
+
+    &__cards {
+      gap: 39px;
+    }
+    &__card {
+      box-sizing: border-box;
+      &-text {
+        &-info {
+          @include s.d-flex($direction: column, $justify: space-between);
+          gap: 4px;
+
+          h3 {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  // -------------- 1440 -------------
+  @media (min-width: s.$media_1440) {
+    gap: 176px;
+
+    &__info {
+      @include s.d-flex($direction: column, $justify: space-between);
+      gap: 48px;
+      min-width: 646px;
+      max-width: none;
+
+      div {
+        @include s.d-flex($direction: column, $align: stretch);
+      }
+      p {
+        width: 530px;
+      }
+    }
+
+    &__cards {
+      gap: 39px;
+    }
+    &__card {
+      box-sizing: border-box;
+      &-text {
+        &-info {
+          @include s.d-flex(column);
+          gap: 4px;
+
+          h3 {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: s.$media_1920) {
+    gap: 300px;
+  }
+}
