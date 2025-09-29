@@ -1,3 +1,5 @@
+@use "./variables.scss" as v;
+
 @mixin d-flex(
   $direction: row,
   $justify: start,
@@ -10,9 +12,31 @@
   align-items: $align;
   flex-wrap: $wrap;
 }
-// border: {
-// 	width: 1px;
-// 	style: solid;
-// 	color: black;
-// 	radius: 0px;
-// }
+@mixin btn-def {
+  border-radius: 8px;
+  border: none;
+  background: v.$color__btn;
+
+  padding-top: 14px;
+  padding-bottom: 14px;
+
+  font-family: v.$font__sans;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  color: v.$color__white;
+
+  transition: background 0.5s ease;
+  &:hover {
+    background: v.$color__btn-hover;
+  }
+}
+@mixin icons {
+  --bg-color: #222233;
+  --icon-color: #fff;
+  transition: all 0.5s ease;
+}
+@mixin icons-hover {
+  --bg-color: #57efb4;
+  --icon-color: #222233;
+}

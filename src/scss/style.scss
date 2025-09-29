@@ -3,9 +3,12 @@
 
 @use "./base/variables.scss";
 @use "./base/mixins.scss";
-@use "./base/template.scss";
 
 @use "./base/base.scss";
 @use "./base/container.scss";
 
 @use "./components/header.scss" as *;
+
+// --------- homepage ----------
+@use "./components/homepage/hero.scss" as *;
+
