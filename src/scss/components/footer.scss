@@ -1,0 +1,115 @@
+@use "../base/globals.scss" as s;
+
+.footer__bgr {
+  background-color: s.$color__hover;
+}
+.footer {
+  @include s.d-flex($direction: column);
+  gap: 44px;
+  margin-top: 2px;
+
+  &__logo {
+    svg {
+      width: 140px;
+      height: 44px;
+    }
+  }
+
+  &__nav {
+    @include s.d-flex($direction: row, $wrap: wrap);
+    row-gap: 8px;
+    column-gap: 32px;
+
+    &-link {
+      width: 120px;
+
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      color: s.$color__white;
+
+      transition: color 0, 5s ease;
+
+      &:hover {
+        color: s.$color__gray;
+      }
+
+      @media (min-width: s.$media_414) {
+        width: 159px;
+      }
+    }
+  }
+
+  &__wrapper {
+    @include s.d-flex($direction: column);
+    gap: 24px;
+    margin-top: 3px;
+
+    p {
+      font-family: s.$font__inter;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: s.$color__gray;
+    }
+    &-social {
+      @include s.d-flex();
+      gap: 16px;
+
+      &-icon {
+        svg {
+          width: 32px;
+          height: 32px;
+
+          @include s.icons;
+
+          &:hover {
+            @include s.icons-hover;
+          }
+        }
+      }
+    }
+  }
+
+  @media (min-width: s.$media_768) {
+    gap: 28px;
+    margin-top: 0px;
+
+    &__nav {
+      &-link {
+        width: 187px;
+      }
+    }
+
+    &__wrapper {
+      @include s.d-flex($direction: row, $justify: space-between);
+      margin-top: 18px;
+
+      &-social {
+        gap: 24px;
+      }
+    }
+  }
+
+  @media (min-width: s.$media_1440) {
+    gap: 28px;
+
+    &__nav {
+      &-link {
+        width: 291px;
+      }
+    }
+
+    &__wrapper {
+      margin-top: 18px;
+    }
+  }
+
+  @media (min-width: s.$media_1920) {
+    &__nav {
+      &-link {
+        width: 200px;
+      }
+    }
+}
+}
