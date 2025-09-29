@@ -1,20 +1,20 @@
 const worksArr = [
   {
-    mobUrl: "/img/works/card-1-mob.webp",
-    tabletUrl: "/img/works/card-1-tablet.webp",
-    deskUrl: "/img/works/card-1-desk.webp",
+    mobUrl: "img/works/card-1-mob.webp",
+    tabletUrl: "img/works/card-1-tablet.webp",
+    deskUrl: "img/works/card-1-desk.webp",
     desc: "Portier - The ultimate templates & components library.",
   },
   {
-    mobUrl: "/img/works/card-2-mob.webp",
-    tabletUrl: "/img/works/card-2-tablet.webp",
-    deskUrl: "/img/works/card-2-desk.webp",
+    mobUrl: "img/works/card-2-mob.webp",
+    tabletUrl: "img/works/card-2-tablet.webp",
+    deskUrl: "img/works/card-2-desk.webp",
     desc: "The Coporate - Card for Indian Startups",
   },
   {
-    mobUrl: "/img/works/card-3-mob.webp",
-    tabletUrl: "/img/works/card-3-tablet.webp",
-    deskUrl: "/img/works/card-3-desk.webp",
+    mobUrl: "img/works/card-3-mob.webp",
+    tabletUrl: "img/works/card-3-tablet.webp",
+    deskUrl: "img/works/card-3-desk.webp",
     desc: "Components Web App Interface UI",
   },
 ];
@@ -36,7 +36,7 @@ if (worksContainer) {
         <use href="img/sprite.svg#icon-more"></use>
       </svg>
     </a>
-		</div>`;
+		</li>`;
   });
   worksContainer.innerHTML = cardsHtmlWorks.join("");
 }
