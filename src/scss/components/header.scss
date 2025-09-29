@@ -1,0 +1,129 @@
+@use "../base/globals.scss" as s;
+
+.header {
+  padding: 22px 0;
+  @include s.d-flex($justify: space-between, $align: center);
+
+  &__logo {
+    svg {
+      fill: s.$color__white;
+      width: 114px;
+      height: 38px;
+    }
+  }
+  &__nav {
+    width: 100%;
+    height: 100vh;
+    @include s.d-flex($direction: column, $align: center);
+    gap: 30px;
+
+    position: fixed;
+    right: -100%;
+    top: 88px;
+    background-color: s.$color__main;
+    transition: all 0.5s ease;
+
+    &.active {
+      right: 0;
+    }
+
+    &-link {
+      font-family: s.$font__sora;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.14286;
+      color: #88888d;
+      transition: color 0.5s ease;
+
+      &.active-link {
+        color: s.$color__white;
+      }
+      &:hover {
+        color: s.$color__white;
+      }
+    }
+    :last-child {
+      padding: 20px 34px;
+      border-radius: 8px;
+      background: s.$color__hover;
+
+      font-family: s.$font__sans;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.42857;
+      color: s.$color__white;
+      transition: background 0.5s ease;
+
+      &:hover {
+        background: #353945;
+      }
+    }
+  }
+  &__menu {
+    padding: 13px 9px;
+    &-burger {
+      width: 26px;
+      height: 18px;
+    }
+  }
+
+  // ---------------------- 768 -------------------
+  @media (min-width: s.$media_768) {
+    & {
+      padding: 20px 0;
+      @include s.d-flex($justify: space-between, $align: center);
+
+      &__logo {
+        svg {
+          width: 140px;
+          height: 44px;
+        }
+      }
+      &__nav {
+        width: auto;
+        height: auto;
+        @include s.d-flex($direction: row, $align: center);
+        gap: 40px;
+
+        position: static;
+        right: 0;
+        top: 0;
+        background-color: transparent;
+
+        &-link {
+          font-size: 14px;
+        }
+        :last-child {
+          padding: 14px 24px;
+          font-size: 14px;
+        }
+      }
+      &__menu {
+        display: none;
+      }
+    }
+  }
+
+  // ---------------- 1440 ------------
+  @media (min-width: s.$media_1920) {
+    & {
+      &__logo {
+        svg {
+          width: 160px;
+          height: 64px;
+        }
+      }
+      &__nav {
+        gap: 50px;
+
+        &-link {
+          font-size: 18px;
+        }
+        :last-child {
+          padding: 18px 28px;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

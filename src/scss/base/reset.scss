@@ -35,4 +35,9 @@ body {
     max-width: 100%;
     height: auto;
   }
+  img,
+  video,
+  canvas {
+    overflow: hidden; 
+  }
 }
