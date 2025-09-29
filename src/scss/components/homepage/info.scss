@@ -76,11 +76,86 @@
   }
 
   @media (min-width: s.$media_1920) {
-		gap: 200px;
+    gap: 200px;
     &__text {
       gap: 20px;
       h2 {
         font-size: 40px;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+.info-two {
+  @include s.d-flex($direction: column, $align: center);
+  gap: 60px;
+  &__image {
+    width: 100%;
+    border-radius: 8px;
+    img {
+      width: 100%;
+    }
+  }
+  &__info {
+    @include s.d-flex($direction: column, $align: center);
+    gap: 16px;
+
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      color: s.$color__gray;
+    }
+  }
+
+  // -------------- 768 -------------
+  @media (min-width: s.$media_768) {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 86px;
+    &__image {
+      min-width: 300px;
+      @media (min-width: s.$media_1024) {
+        min-width: 400px;
+      }
+    }
+    &__info {
+      h2 {
+        font-size: 48px;
+        line-height: 1.16667;
+        letter-spacing: -0.02em;
+      }
+    }
+  }
+
+  // -------------- 1440 -------------
+  @media (min-width: s.$media_1440) {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 129px;
+    &__image {
+      min-width: 600px;
+    }
+  }
+
+  // -------------- 1920 -------------
+  @media (min-width: s.$media_1920) {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 229px;
+    &__image {
+      min-width: 600px;
+      max-width: 900px;
+    }
+    &__info {
+      h2 {
+        font-size: 52px;
       }
       p {
         font-size: 20px;
