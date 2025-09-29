@@ -1,0 +1,90 @@
+@use "../../base/globals.scss" as s;
+
+.info-one {
+  @include s.d-flex(
+    $direction: column,
+    // $justify: center,
+    $align: center
+  );
+
+  gap: 48px;
+
+  &__text {
+    @include s.d-flex($direction: column);
+    gap: 16px;
+
+    font-family: s.$font__sora;
+
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+
+      @media (max-width: s.$media_414) {
+        max-width: 300px;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      color: s.$color__gray;
+    }
+  }
+  &__card-image {
+    border-radius: 8px;
+    width: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  // -------------- 768 -------------
+  @media (min-width: s.$media_768) {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 64px;
+
+    &__text {
+      @include s.d-flex($direction: column);
+
+      h2 {
+        font-size: 48.5px;
+        line-height: 1.16;
+        letter-spacing: -0.02em;
+      }
+    }
+    &__card-image {
+      margin-right: -8px;
+      min-width: 400px;
+    }
+  }
+
+  // ---------------- 1440 --------------
+  @media (min-width: s.$media_1440) {
+    gap: 129px;
+
+    &__text {
+      min-width: 531px;
+    }
+    &__card-image {
+      margin-right: 0px;
+      min-width: 600px;
+    }
+  }
+
+  @media (min-width: s.$media_1920) {
+		gap: 200px;
+    &__text {
+      gap: 20px;
+      h2 {
+        font-size: 40px;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+  }
+}
