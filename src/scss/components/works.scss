@@ -1,0 +1,104 @@
+@use "../base/globals.scss" as s;
+
+.works {
+  @include s.d-flex($direction: column, $justify: center, $align: center);
+  gap: 50px;
+  margin-top: -2px;
+
+  &__card {
+    border-radius: 8px;
+
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+
+    &-image {
+      img {
+        width: 100%;
+      }
+    }
+    &-text {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+
+      box-sizing: border-box;
+      max-width: 276px;
+      background: s.$color__hover;
+      border-radius: 0 8px 0 0;
+      padding: 10px 15px;
+
+      font-family: s.$font__sora;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.71429;
+
+      @media (max-width: 413px) {
+        max-width: 176px;
+        font-size: 11px;
+      }
+    }
+    &-more {
+      position: absolute;
+      right: 15px;
+      bottom: 11px;
+      cursor: pointer;
+
+      transition: all 0.5s ease;
+
+      svg {
+        width: 44px;
+        height: 44px;
+        use {
+          @include s.icons;
+          transition: all 0.5s ease;
+        }
+      }
+      &:hover {
+        use {
+          @include s.icons-hover;
+        }
+      }
+    }
+  }
+
+  // ------------------- 768 ---------------
+  @media (min-width: s.$media_768) {
+    & {
+      gap: 90px;
+
+      &__card {
+        &-text {
+          bottom: 30px;
+          left: 30px;
+
+          max-width: none;
+          border-radius: 8px;
+          padding: 20px;
+        }
+        &-more {
+          right: 30px;
+          bottom: 26px;
+        }
+      }
+    }
+  }
+
+  // ------------------ 1440 ---------------
+  @media (min-width: s.$media_768) {
+    & {
+      gap: 80px;
+
+      &__card {
+        &-text {
+          bottom: 40px;
+          left: 40px;
+        }
+        &-more {
+          right: 40px;
+          bottom: 36px;
+        }
+      }
+    }
+  }
+}
