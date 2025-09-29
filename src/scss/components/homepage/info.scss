@@ -49,7 +49,6 @@
 
     &__text {
       @include s.d-flex($direction: column);
-
       h2 {
         font-size: 48.5px;
         line-height: 1.16;
@@ -58,7 +57,10 @@
     }
     &__card-image {
       margin-right: -8px;
-      min-width: 400px;
+      min-width: 300px;
+      @media (min-width: s.$media_1024) {
+        min-width: 400px;
+      }
     }
   }
 
