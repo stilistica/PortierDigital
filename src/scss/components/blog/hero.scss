@@ -1,0 +1,109 @@
+@use "../../base/globals.scss" as s;
+
+.blog-hero {
+  @include s.d-flex($direction: column);
+  gap: 48px;
+
+  &__info {
+    margin-top: 40px;
+    @include s.d-flex($direction: column);
+    gap: 16px;
+    text-align: center;
+    h1 {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+    p {
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.33333;
+      letter-spacing: -0.01em;
+      color: s.$color__gray;
+    }
+  }
+  &__form {
+    @include s.d-flex($direction: column);
+    gap: 6px;
+    input {
+      border: 1px solid s.$color__hover;
+      border-radius: 8px;
+      padding: 15px 20px;
+      background: s.$color__main;
+
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      color: s.$color__white;
+      &::placeholder {
+        font-family: s.$font__sora;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.71429;
+        color: s.$color__white;
+      }
+    }
+    button {
+      @include s.btn-def;
+    }
+  }
+
+  // ------------------- 768 -----------------
+  @media (min-width: s.$media_768) {
+    @include s.d-flex($direction: column, $align: center);
+    &__info {
+      margin-top: 0px;
+      h1 {
+        font-size: 64px;
+        line-height: 1;
+        letter-spacing: -0.02em;
+      }
+    }
+    &__form {
+      @include s.d-flex($direction: row, $justify: space-around);
+      gap: 8px;
+      input {
+        padding: 15px 20px 12px 20px;
+
+        min-width: 400px;
+        max-width: 567px;
+        @media (min-width: s.$media_1024) {
+          min-width: none;
+          max-width: none;
+          width: 526px;
+        }
+      }
+      button {
+        margin-right: 18px;
+        width: 128px;
+      }
+    }
+  }
+
+  // ------------------- 1440 -----------------
+  @media (min-width: s.$media_1440) {
+    &__info {
+      @include s.d-flex($direction: column, $align: center);
+
+      h1 {
+        width: 800px;
+        font-size: 72px;
+        line-height: 1.19444;
+      }
+			p {
+				width: 900px;
+			}
+    }
+    &__form {
+      input {
+        padding: 14px 20px 13px 20px;
+
+        width: 526px;
+      }
+      button {
+        margin-right: 17px;
+      }
+    }
+  }
+}
