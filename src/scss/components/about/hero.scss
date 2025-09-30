@@ -1,0 +1,126 @@
+@use "../../base/globals.scss" as s;
+
+.about-hero {
+  padding-top: 40px;
+  &__image {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__info {
+    @include s.d-flex($direction: column);
+    margin-top: -80px;
+
+    &-text {
+      @include s.d-flex($direction: column);
+      margin-bottom: 48px;
+      gap: 16px;
+      h1 {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+      p {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.33333;
+        letter-spacing: -0.01em;
+        color: s.$color__gray;
+      }
+    }
+
+    &-social {
+      @include s.d-flex($align: center, $wrap: wrap);
+      gap: 39px;
+      &-item {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.71429;
+      }
+    }
+    @media (min-width: 426px) {
+      margin-top: -30px;
+      max-width: 600px;
+    }
+  }
+
+  // ---------------------- 768 -------------------
+  @media (min-width: s.$media_768) {
+    padding-top: 0px;
+    &__image {
+      img {
+        width: 690px;
+        margin: 0 auto;
+      }
+    }
+
+    &__info {
+      @include s.d-flex(
+        $direction: row,
+        $justify: space-between,
+        $align: flex-end
+      );
+      gap: 90px;
+      max-width: none;
+      margin-top: -19px;
+
+      &-text {
+        margin-bottom: 0px;
+
+        min-width: 300px;
+
+        h1 {
+          font-size: 44px;
+          line-height: 1;
+          letter-spacing: -0.02em;
+        }
+      }
+      @media (min-width: s.$media_1024) {
+        margin-top: -29px;
+        gap: 120px;
+
+        &-text {
+          min-width: 600px;
+          h1 {
+            font-size: 64px;
+          }
+        }
+      }
+
+      &-social {
+        @include s.d-flex($direction: column);
+        gap: 8px;
+      }
+    }
+  }
+
+  // ---------------------- 1440 -------------------
+  @media (min-width: s.$media_1440) {
+    &__image {
+      img {
+        width: 760px;
+      }
+    }
+
+    &__info {
+      @include s.d-flex(
+        $direction: row,
+        $justify: space-between,
+        $align: flex-end
+      );
+      margin-top: -200px;
+
+      &-text {
+        max-width: 646px;
+
+        h1 {
+          font-size: 72px;
+          line-height: 1.19444;
+        }
+      }
+    }
+  }
+}
