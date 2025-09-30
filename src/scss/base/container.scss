@@ -6,6 +6,14 @@
     & {
       padding: 0 90px;
     }
+    @media (min-width: s.$media_1440) {
+      box-sizing: border-box;
+      width: 1440px;
+      margin: 0 auto;
+    }
+    @media (min-width: s.$media_1920) {
+      width: 1920px;
+    }
   }
 }
 
