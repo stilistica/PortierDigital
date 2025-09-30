@@ -1,0 +1,125 @@
+@use "../../base/globals.scss" as s;
+
+.companies {
+  @include s.d-flex($direction: column);
+  gap: 48px;
+
+  &__info {
+    @include s.d-flex($direction: column);
+    gap: 48px;
+
+    div {
+      @include s.d-flex($direction: column);
+      gap: 16px;
+
+      h2 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      color: s.$color__gray;
+    }
+  }
+  &__cards {
+    @include s.d-flex($direction: column);
+    gap: 32px;
+  }
+  &__card {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+
+    @include s.d-flex($direction: row);
+    gap: 24px;
+
+    border-radius: 8px;
+    background: s.$color__main;
+
+    transition: all 0.5s ease;
+
+    &-svg {
+      width: 44px;
+      height: 44px;
+      svg {
+        width: 44px;
+        height: 44px;
+        use {
+          @include s.icons;
+        }
+      }
+    }
+
+    &-text {
+      @include s.d-flex($direction: column);
+      gap: 4px;
+
+      h3 {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 1.33333;
+      }
+      p {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.66667;
+      }
+    }
+
+    &:hover {
+      background: s.$color__hover;
+      use {
+        @include s.icons-hover;
+      }
+    }
+  }
+
+  // ------------------ 768 ----------------
+  @media (min-width: s.$media_768) {
+    @include s.d-flex(
+      $direction: row,
+      $align: stretch,
+      $justify: space-between
+    );
+    gap: 110px;
+
+    &__info {
+      @include s.d-flex($direction: column, $justify: space-between);
+      max-width: 438px;
+      div {
+        h2 {
+          font-size: 48px;
+          line-height: 1.16667;
+          letter-spacing: -0.02em;
+        }
+      }
+    }
+    &__card {
+      min-width: 196px;
+
+      @media (min-width: s.$media_1024) {
+        min-width: 296px;
+      }
+    }
+  }
+
+  // ------------------ 1440 ----------------
+  @media (min-width: s.$media_1440) {
+    gap: 176px;
+
+    &__info {
+      @include s.d-flex($direction: column, $justify: space-between);
+      max-width: none;
+      min-width: 646px;
+    }
+    &__card {
+      min-width: 438px;
+    }
+  }
+}
