@@ -1,0 +1,40 @@
+@use "../base/globals.scss" as s;
+
+.scroll-btn {
+  z-index: 9990;
+  position: fixed;
+  display: none;
+
+  background: transparent;
+  border-radius: 100%;
+  border: none;
+  right: 30px;
+  bottom: 30px;
+
+  transition: all 0.5s ease;
+  svg {
+    border-radius: 100%;
+    background: s.$color__main;
+    width: 60px;
+    height: 60px;
+    use {
+      fill: s.$color__white;
+      transition: all 0.5s ease;
+    }
+  }
+  &:hover {
+    use {
+      fill: s.$color__green;
+    }
+  }
+
+  // ------------------ 768 ---------------
+  @media (min-width: s.$media_768) {
+    right: 50px;
+    bottom: 50px;
+    svg {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}

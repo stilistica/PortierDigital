@@ -1,3 +1,4 @@
+import "./modules/scroll.js";
 import "./modules/header.js";
 import "./modules/works.js";
 import "./modules/testimonials.js";
