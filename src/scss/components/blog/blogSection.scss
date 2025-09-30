@@ -1,0 +1,154 @@
+@use "../../base/globals.scss" as s;
+
+.blog {
+  @include s.d-flex($direction: column);
+  gap: 48px;
+  &__info {
+    @include s.d-flex($direction: column);
+    gap: 16px;
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      color: s.$color__gray;
+    }
+  }
+  &__cards {
+    @include s.d-flex($direction: column);
+    gap: 32px;
+  }
+
+  &__card {
+    border-radius: 8px;
+    overflow: hidden;
+    @include s.d-flex($direction: column);
+    &-image {
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+    &-info {
+      padding: 20px;
+      background: s.$color__main;
+      @include s.d-flex($direction: column);
+      gap: 16px;
+
+      transition: background 0.5s ease;
+
+      h3 {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 1.33333;
+      }
+      p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 1.71429;
+        color: s.$color__gray;
+      }
+      a {
+        margin-top: 8px;
+        @include s.d-flex($direction: row, $align: center);
+        gap: 8px;
+
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.71429;
+        color: s.$color__btn;
+
+        svg {
+          width: 15px;
+          height: 16px;
+          fill: s.$color__btn;
+          transition: fill 0.5s ease;
+        }
+        &:hover {
+          color: s.$color__btn-hover;
+          svg {
+            fill: s.$color__btn-hover;
+          }
+        }
+      }
+
+      &:hover {
+        background: s.$color__hover;
+      }
+    }
+  }
+
+  // ------------------- 768 -----------------
+  @media (min-width: s.$media_768) {
+    &__info {
+      h2 {
+        font-size: 48px;
+        line-height: 1.16667;
+        letter-spacing: -0.02em;
+      }
+      p {
+        max-width: 550px;
+      }
+    }
+    &__card {
+      height: 316px;
+      @include s.d-flex($direction: row, $align: stretch);
+      &:first-child {
+        a {
+          display: none;
+        }
+      }
+      &-image {
+        img {
+          object-fit: cover;
+        }
+      }
+      &-info {
+        box-sizing: border-box;
+        max-width: 424px;
+        padding: 30px 44px 6px 40px;
+        h3 {
+          font-size: 32px;
+          line-height: 1.25;
+          letter-spacing: -0.01em;
+        }
+      }
+    }
+  }
+
+  // ------------------- 1440 -----------------
+  @media (min-width: s.$media_1440) {
+    &__card {
+      @include s.d-flex($direction: row, $align: stretch);
+      &:first-child {
+        a {
+          display: block;
+        }
+      }
+      &-image {
+        img {
+          object-fit: cover;
+        }
+      }
+      &-info {
+        box-sizing: border-box;
+        max-width: none;
+        min-width: 700px;
+        padding: 40px 74px 6px 40px;
+        h3 {
+          font-size: 32px;
+          line-height: 1.25;
+          letter-spacing: -0.01em;
+          br {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

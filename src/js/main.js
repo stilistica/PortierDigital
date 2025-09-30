@@ -3,4 +3,5 @@ import "./modules/works.js";
 import "./modules/testimonials.js";
 import "./modules/values.js";
 import "./modules/companies.js";
+import "./modules/blog.js";
 
