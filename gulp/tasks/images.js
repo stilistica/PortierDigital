@@ -1,8 +1,4 @@
 import webp from "gulp-webp";
-import imagemin from "gulp-imagemin";
-import mozjpeg from "imagemin-mozjpeg";
-import optipng from "imagemin-optipng";
-import svgo from "imagemin-svgo";
 
 export const images = () => {
   return app.gulp
