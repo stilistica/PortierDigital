@@ -1,0 +1,76 @@
+@use "../../base/globals.scss" as s;
+
+.values {
+  @include s.d-flex($direction: column, $align: center);
+  gap: 48px;
+
+  &__info {
+    @include s.d-flex($direction: column, $align: center);
+    text-align: center;
+    gap: 16px;
+
+    h2 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71429;
+      text-align: center;
+      color: s.$color__gray;
+    }
+  }
+
+  &__cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+
+    gap: 32px;
+
+    & .card {
+      width: 100%;
+    }
+  }
+
+  // ---------------------- 768 -------------------
+  @media (min-width: s.$media_768) {
+    gap: 68px;
+
+    &__info {
+      h2 {
+        font-size: 48px;
+        line-height: 1.16667;
+        letter-spacing: -0.02em;
+      }
+      p {
+        max-width: 640px;
+      }
+    }
+
+    &__cards {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 31.5px;
+    }
+  }
+
+  // ---------------------- 1440 -------------------
+  @media (min-width: s.$media_1440) {
+    gap: 48px;
+
+    &__info {
+      p {
+        max-width: 600px;
+      }
+    }
+
+    &__cards {
+      grid-template-columns: repeat(3, 1fr);
+      column-gap: 32px;
+      row-gap: 30px;
+    }
+  }
+}
