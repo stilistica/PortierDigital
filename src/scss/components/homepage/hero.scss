@@ -1,5 +1,12 @@
 @use "../../base/globals.scss" as s;
 
+.hero__gray {
+  color: s.$color__gray;
+}
+.hero__green {
+  color: s.$color__green;
+}
+
 .home-hero {
   @include s.d-flex($direction: column, $justify: center);
   gap: 60px;
@@ -16,13 +23,6 @@
       line-height: 1.2;
       letter-spacing: -0.01em;
       color: s.$color__white;
-
-      .home-hero__gray {
-        color: s.$color__gray;
-      }
-      .home-hero__green {
-        color: s.$color__green;
-      }
     }
 
     p {
@@ -186,7 +186,7 @@
         max-width: none;
         justify-self: auto;
         min-width: 386px;
-				max-width: none;
+        max-width: none;
       }
       &.home-hero__cards-card-3 {
         min-width: 402px;

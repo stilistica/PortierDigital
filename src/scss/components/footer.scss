@@ -48,7 +48,7 @@
     p {
       font-family: s.$font__inter;
       font-weight: 400;
-      font-size: 16px;
+      font-size: 16.4px;
       line-height: 1.5;
       color: s.$color__gray;
     }
@@ -83,7 +83,7 @@
 
     &__wrapper {
       @include s.d-flex($direction: row, $justify: space-between);
-      margin-top: 18px;
+      margin-top: 20px;
 
       &-social {
         gap: 24px;

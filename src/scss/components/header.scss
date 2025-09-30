@@ -23,6 +23,8 @@
     background-color: s.$color__main;
     transition: all 0.5s ease;
 
+    z-index: 9999;
+
     &.active {
       right: 0;
     }

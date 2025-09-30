@@ -1,0 +1,103 @@
+@use "../../base/globals.scss" as s;
+
+.portfolio-hero {
+  padding-top: 96px;
+  padding-bottom: 100px;
+
+  @include s.d-flex($direction: column);
+  gap: 48px;
+
+  font-family: s.$font__sora;
+  &__title {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+
+  &__line {
+    width: 100%;
+    background: transparent;
+    border-color: s.$color__hover;
+
+    padding-top: 0px;
+    margin: 8px 0 0 0;
+  }
+
+  &__info {
+    @include s.d-flex($direction: column);
+    gap: 48px;
+
+    button {
+      @include s.btn-def;
+    }
+    p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: s.$color__gray;
+    }
+  }
+
+  // ------------------ 768 --------------------
+  @media (min-width: s.$media_768) {
+    padding-top: 150px;
+
+    &__title {
+      max-width: 700px;
+      font-size: 64px;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    &__info {
+      @include s.d-flex(
+        $direction: row,
+        $justify: space-between,
+        $align: start
+      );
+      gap: 194px;
+
+      button {
+        min-width: 159px;
+      }
+      p {
+        max-width: 491px;
+        font-size: 24px;
+        line-height: 1.33333;
+        letter-spacing: -0.01em;
+
+        @media (min-width: 1025px) {
+          max-width: none;
+          min-width: 491px;
+        }
+      }
+    }
+  }
+
+  // ------------------ 1440 --------------------
+  @media (min-width: s.$media_1440) {
+    padding-top: 200px;
+    padding-bottom: 200px;
+
+    &__title {
+      max-width: 900px;
+
+      font-size: 72px;
+      line-height: 1.19444;
+    }
+
+    &__line {
+      margin: 0;
+    }
+    &__info {
+      gap: 487px;
+
+      button {
+        min-width: 159px;
+      }
+      p {
+        min-width: 611px;
+      }
+    }
+  }
+}
